@@ -12,7 +12,7 @@ sudo apt-get install sysbench xvfb mesa-utils
 
 echo -e "${RED}MAKE AND INSTALL VIDEO CORE OPENGV EXAMPLES${NC}"
 
-cd /opt/vc/src
+cd /opt/vc/src/hello_pi
 make
 
 echo "END"
