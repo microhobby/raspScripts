@@ -11,7 +11,7 @@ echo ""
 echo -e "${RED}CORE INFO${NC}"
 
 MODEL=`cat /proc/cpuinfo | grep "model name"`
-VENDOR=`cat /proc/cpuinfo | grep "hardware"`
+VENDOR=`cat /proc/cpuinfo | grep "Hardware"`
 TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
 TEMPVC=`/opt/vc/bin/vcgencmd measure_temp`
 IFS=$'\n'; array=($MODEL); unset IFS;
@@ -19,6 +19,7 @@ IFS=$'\n'; array=($MODEL); unset IFS;
 echo "CORES:	${#array[@]}"
 echo "VENDOR: 	$VENDOR"
 echo "TEMP:	$TEMP"
+echo "TEMPVC:	$TEMPVC"
 echo ""
 
 echo -e "${RED}RUN SYSBENCH${NC}"
@@ -31,8 +32,9 @@ TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
 TEMPVC=`/opt/vc/bin/vcgencmd measure_temp`
 
 echo ""
-echo "$SYSBENCHRET" | grep "total time"
+echo "$SYSBENCHRET" | grep "total time:"
 echo ""
 echo "TEMP:	$TEMP"
+echo "TEMPVC:	$TEMPVC
 echo ""
 echo "END"
