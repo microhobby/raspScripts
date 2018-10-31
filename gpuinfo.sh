@@ -34,12 +34,13 @@ IFS=$'='; array3=($TEMPVC); unset IFS;
 echo "Temp before: 	$TEMP"
 echo "TEMPVC: 		${array3[1]}"
 
-RESULT=`glmark2 -b refract:duration=10 2> /dev/null | grep "glmark2 Score:"`
+RESULT=`glmark2 -b refract:duration=10 2> /dev/null`
 IFS=$':'; array1=($RESULT); unset IFS;
 
 echo -e "${RED}"
 echo "Board: 	${array4[1]/$SECOND/}"
-echo "Score: 	${array1[1]}"
+echo "FPS:	${array1[5]}:${array1[6]}"
+echo "Score: 	${array1[7]}"
 echo -e "${NC}"
 
 TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
