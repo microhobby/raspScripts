@@ -28,7 +28,7 @@ echo ""
 echo -e "${GREEN}RUN SYSBENCH${NC}"
 
 echo Running ...
-SYSBENCHRET=`sysbench --test=cpu --cpu-max-prime=2000 --num-threads=4 run`
+SYSBENCHRET=`sysbench cpu --time=5 --threads=4 run`
 echo Done
 
 TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
@@ -37,7 +37,7 @@ IFS=$'='; array3=($TEMPVC); unset IFS;
 
 echo ""
 echo -e "${RED}"
-echo "$SYSBENCHRET" | grep "total time:"
+echo "$SYSBENCHRET" | grep "total number of events:"
 echo -e "${NC}"
 echo ""
 echo "TEMP:	$TEMP"
