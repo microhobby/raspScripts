@@ -11,6 +11,8 @@ echo ""
 
 echo -e "${GREEN}CORE INFO${NC}"
 
+SECOND="product"
+PRODUCT=`sudo lshw | grep product`
 MODEL=`cat /proc/cpuinfo | grep "model name"`
 VENDOR=`cat /proc/cpuinfo | grep "Hardware"`
 TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
@@ -18,6 +20,7 @@ TEMPVC=`/opt/vc/bin/vcgencmd measure_temp`
 IFS=$'\n'; array=($MODEL); unset IFS;
 IFS=$':'; array2=($VENDOR); unset IFS;
 IFS=$'='; array3=($TEMPVC); unset IFS;
+IFS=$':'; array4=($PRODUCT); unset I
 
 echo "CORES:	${#array[@]}"
 echo "VENDOR:${array2[1]}"
@@ -37,6 +40,7 @@ IFS=$'='; array3=($TEMPVC); unset IFS;
 
 echo ""
 echo -e "${RED}"
+echo "Board: 	${array4[1]/$SECOND/}"
 echo "$SYSBENCHRET" | grep "total number of events:"
 echo -e "${NC}"
 echo ""

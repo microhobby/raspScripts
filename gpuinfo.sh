@@ -32,7 +32,7 @@ TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
 TEMPVC=`/opt/vc/bin/vcgencmd measure_temp`
 IFS=$'='; array3=($TEMPVC); unset IFS;
 echo "Temp before: 	$TEMP"
-echo "TEMPVC:	${array3[1]}"
+echo "TEMPVC: 		${array3[1]}"
 
 RESULT=`glmark2 -b refract:duration=10 2> /dev/null | grep "glmark2 Score:"`
 IFS=$':'; array1=($RESULT); unset IFS;
@@ -46,5 +46,5 @@ TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
 TEMPVC=`/opt/vc/bin/vcgencmd measure_temp`
 IFS=$'='; array3=($TEMPVC); unset IFS;
 echo "Temp before: 	$TEMP"
-echo "TEMPVC:	${array3[1]}"
+echo "TEMPVC: 		${array3[1]}"
 echo ""
