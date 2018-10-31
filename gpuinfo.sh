@@ -13,9 +13,9 @@ echo -e "${GREEN}GLX INFO${NC}"
 
 SECOND="product"
 PRODUCT=`sudo lshw | grep product`
-MODEL=`glxinfo | grep "server glx vendor string:"`
-OPENGL=`glxinfo | grep "OpenGL version string:"`
-RENDER=`glxinfo | grep "OpenGL renderer string:"`
+MODEL=`glxinfo 2> /dev/null | grep "server glx vendor string:"`
+OPENGL=`glxinfo 2> /dev/null | grep "OpenGL version string:"`
+RENDER=`glxinfo 2> /dev/null | grep "OpenGL renderer string:"`
 IFS=$':'; array1=($MODEL); unset IFS;
 IFS=$':'; array2=($OPENGL); unset IFS;
 IFS=$':'; array3=($RENDER); unset IFS;
