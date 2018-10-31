@@ -28,7 +28,7 @@ echo ""
 echo -e "${GREEN}RUN SYSBENCH${NC}"
 
 echo Running ...
-SYSBENCHRET=`sysbench cpu --time=5 --threads=4 run`
+SYSBENCHRET=`sysbench --test=cpu --max-time=5 --threads=4 run`
 echo Done
 
 TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
