@@ -41,7 +41,7 @@ IFS=$'='; array3=($TEMPVC); unset IFS;
 echo ""
 echo -e "${RED}"
 echo "Board: 	${array4[1]/$SECOND/}"
-echo "$SYSBENCHRET" | grep "avg:"
+echo "$SYSBENCHRET" | grep "total time:"
 echo -e "${NC}"
 echo ""
 echo "TEMP:	$TEMP"
