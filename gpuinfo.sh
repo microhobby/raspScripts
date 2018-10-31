@@ -31,24 +31,7 @@ echo -e "${GREEN}RUN GLMARK${NC}"
 TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
 echo "Temp before: 	$TEMP"
 
-RESULT=`glmark2 -b shading:duration=10 | grep "glmark2 Score:"`
-IFS=$':'; array1=($RESULT); unset IFS;
-
-echo -e "${RED}"
-echo "Board: 	${array4[1]/$SECOND/}"
-echo "Score: 	${array1[1]}"
-echo -e "${NC}"
-
-TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
-echo "Temp after: 	$TEMP"
-echo ""
-
-echo -e "${GREEN}RUN VKMARK${NC}"
-
-TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
-echo "Temp before: 	$TEMP"
-
-RESULT=`../vkmark/./build/src/vkmark -b shading:duration=10.0 --winsys-dir=../vkmark/build/src --data-dir=../vkmark/data -p immediate | grep "vkmark Score:"`
+RESULT=`glmark2 -b refract:duration=10 | grep "glmark2 Score:"`
 IFS=$':'; array1=($RESULT); unset IFS;
 
 echo -e "${RED}"
